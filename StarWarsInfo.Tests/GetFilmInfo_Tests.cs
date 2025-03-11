@@ -19,8 +19,8 @@ namespace StarWarsInfo.Tests
             Title = "Film1", 
             ReleaseDate = DateOnly.MinValue.ToString(),
             OpeningCrawl = "Text Text Text",
-            Planets = ["https:///swapi.dev//api//planets//1//"],
-            Characters = ["https:///swapi.dev//api//people//1//"]
+            Planets = [@"https://swapi.dev/api/planets/1/"],
+            Characters = [@"https://swapi.dev/api/people/1/"]
         };
 
         static private readonly Film ValidFilm2 = new()
@@ -29,20 +29,14 @@ namespace StarWarsInfo.Tests
             Title = "Film2",
             ReleaseDate = DateOnly.MinValue.ToString(),
             OpeningCrawl = "Text Text Text",
-            Planets = ["https:///swapi.dev//api//planets//1//", "https:///swapi.dev//api//planets//2//"],
-            Characters = ["https:///swapi.dev//api//people//1//", "https:///swapi.dev//api//people//2//"]
+            Planets = [@"https://swapi.dev/api/planets/1/"],
+            Characters = [@"https://swapi.dev/api/people/1/"]
         };
 
         static private readonly Person ValidPerson1 = new()
         {
             Name = "Person1",
-            Homeworld = "https:///swapi.dev//api//planets//1//"
-        };
-
-        static private readonly Person ValidPerson2 = new()
-        {
-            Name = "Person2",
-            Homeworld = "https:///swapi.dev//api//planets//2//"
+            Homeworld = @"https://swapi.dev/api/planets/1/"
         };
 
         static private readonly Planet ValidPlanet1 = new()
@@ -50,16 +44,9 @@ namespace StarWarsInfo.Tests
             Name = "Planet1"
         };
 
-        static private readonly Planet ValidPlanet2 = new()
-        {
-            Name = "Planet2"
-        };
-
         static private readonly string ExpectedPlanetName1 = ValidPlanet1.Name;
-        static private readonly string ExpectedPlanetName2 = ValidPlanet2.Name;
 
-        static private readonly ICharecterInfo ExpectedCharecter1 = new CharecterInfo(ValidPerson1.Name, ExpectedPlanetName1);
-        static private readonly ICharecterInfo ExpectedCharecter2 = new CharecterInfo(ValidPerson2.Name, ExpectedPlanetName2);
+        static private readonly ICharacterInfo ExpectedCharecter1 = new CharacterInfo(ValidPerson1.Name, ExpectedPlanetName1);
 
         static private readonly IFilmInfo ExpectedFilm1 = new FilmInfo
         (
@@ -76,10 +63,27 @@ namespace StarWarsInfo.Tests
             ValidFilm2.Title,
             DateOnly.Parse(ValidFilm2.ReleaseDate),
             ValidFilm2.OpeningCrawl,
-            [ValidPlanet1.Name, ValidPlanet2.Name],
-            [ExpectedCharecter1, ExpectedCharecter2]
+            [ValidPlanet1.Name],
+            [ExpectedCharecter1]
         );
         #endregion
+
+        private const int ExpectedId = 1;
+        private readonly Mock<IRepository<Planet>> _mockPlanetRepo;
+        private readonly Mock<IRepository<Person>> _mockPersonRepo;
+
+        public GetFilmInfo_Tests()
+        {
+            _mockPlanetRepo = new Mock<IRepository<Planet>>();
+            _mockPlanetRepo
+                .Setup(repo => repo.GetById(ExpectedId))
+                .Returns(ValidPlanet1);
+
+            _mockPersonRepo = new Mock<IRepository<Person>>();
+            _mockPersonRepo
+                .Setup(repo => repo.GetById(ExpectedId))
+                .Returns(ValidPerson1);
+        }
 
         public static IEnumerable<object[]> FilmTestData()
         {
@@ -115,7 +119,7 @@ namespace StarWarsInfo.Tests
             IGetFilmInfo _getFilmInfo = new GetFilmInfo();
 
             // Act
-            var result = _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object);
+            var result = _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object, _mockPersonRepo.Object, _mockPlanetRepo.Object);
 
             // Assert
             Assert.Equivalent(expectedFilms, result);
@@ -132,7 +136,7 @@ namespace StarWarsInfo.Tests
             IGetFilmInfo _getFilmInfo = new GetFilmInfo();
 
             // Act and Assert
-            Assert.Throws<NullReferenceException>(() => _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object));
+            Assert.Throws<NullReferenceException>(() => _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object, _mockPersonRepo.Object, _mockPlanetRepo.Object));
         }
         [Fact]
         public void NullFilm_ThrowsException()
@@ -145,7 +149,7 @@ namespace StarWarsInfo.Tests
             IGetFilmInfo _getFilmInfo = new GetFilmInfo();
 
             // Act and Assert
-            Assert.Throws<NullReferenceException>(() => _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object));
+            Assert.Throws<NullReferenceException>(() => _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object, _mockPersonRepo.Object, _mockPlanetRepo.Object));
         }
     }
 }

@@ -10,6 +10,6 @@ namespace StarWarsInfo.Core.Entities.Interfaces
     {
         public string OpeningCrawl { get; }
         public List<string> FeaturedPlanetNames { get; }
-        public List<ICharecterInfo> FeaturedCharecters { get; }
+        public List<ICharacterInfo> FeaturedCharecters { get; }
     }
 }

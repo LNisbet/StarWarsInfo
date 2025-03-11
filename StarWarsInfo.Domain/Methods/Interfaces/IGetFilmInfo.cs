@@ -11,6 +11,6 @@ namespace StarWarsInfo.Domain.Methods.Interfaces
 {
     public interface IGetFilmInfo
     {
-        public ObservableCollection<IFilmInfo> GetAllFilmInfo(IRepository<Film> filmRepo);
+        public ObservableCollection<IFilmInfo> GetAllFilmInfo(IRepository<Film> filmRepo, IRepository<Person> personRepo, IRepository<Planet> planetRepo);
     }
 }

@@ -2,13 +2,13 @@
 
 namespace StarWarsInfo.Core.Entities
 {
-    public class CharecterInfo : ICharecterInfo
+    public class CharacterInfo : ICharacterInfo
     {
         public string Name { get; }
 
         public string HomeWorld { get; }
 
-        public CharecterInfo(string name, string homeworld) 
+        public CharacterInfo(string name, string homeworld) 
         { 
             Name = name;
             HomeWorld = homeworld;

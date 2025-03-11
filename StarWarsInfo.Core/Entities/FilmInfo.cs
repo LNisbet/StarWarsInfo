@@ -14,9 +14,9 @@ namespace StarWarsInfo.Core.Entities
 
         public List<string> FeaturedPlanetNames { get; }
 
-        public List<ICharecterInfo> FeaturedCharecters { get; }
+        public List<ICharacterInfo> FeaturedCharecters { get; }
 
-        public FilmInfo(int id, string title, DateOnly releaseDate, string openingCrawl, List<string> feaaturedPlaneNames, List<ICharecterInfo> featuredCharecters)
+        public FilmInfo(int id, string title, DateOnly releaseDate, string openingCrawl, List<string> feaaturedPlaneNames, List<ICharacterInfo> featuredCharecters)
         {
             Id = id;
             Title = title;
