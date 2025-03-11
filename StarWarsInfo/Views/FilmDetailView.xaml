@@ -7,18 +7,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="225"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="220"/>
         </Grid.ColumnDefinitions>
-        <DataGrid ItemsSource="{Binding FeaturedCharecters}" Grid.Column="0">
+
+        <TextBlock Text="Details" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+
+        <TextBlock Text="Featured Charachters" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+        <DataGrid ItemsSource="{Binding FeaturedCharecters}" Grid.Column="0" Grid.Row="2" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Home World" Binding="{Binding HomeWorld}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ListBox ItemsSource="{Binding FeaturedPlanets}" Grid.Column="1"/>
-        <TextBlock Text="{Binding OpeningCrawl}" Grid.Column="2"/>
+
+        <TextBlock Text="Featured Planets" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+        <ListBox ItemsSource="{Binding FeaturedPlanets}" Grid.Column="1" Grid.Row="2"/>
+
+        <TextBlock Text="Opening Crawl" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
+        <ScrollViewer Grid.Column="2" Grid.Row="2" Margin="10,10,10,10">
+            <TextBlock Text="{Binding OpeningCrawl}"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>
