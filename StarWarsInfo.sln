@@ -5,6 +5,12 @@ VisualStudioVersion = 17.12.35506.116 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsInfo", "StarWarsInfo\StarWarsInfo.csproj", "{7FD6F532-908B-466E-AB13-59959F61C115}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsInfo.Core", "StarWarsInfo.Core\StarWarsInfo.Core.csproj", "{43C21CB5-5ED9-4DEB-9BAF-CD230C224B77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsInfo.Domain", "StarWarsInfo.Domain\StarWarsInfo.Domain.csproj", "{B0A50376-F12B-418D-BE56-F4FC69FF54E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsInfo.Tests", "StarWarsInfo.Tests\StarWarsInfo.Tests.csproj", "{66407863-8099-4358-9D24-8CB1F9C418C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{7FD6F532-908B-466E-AB13-59959F61C115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD6F532-908B-466E-AB13-59959F61C115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FD6F532-908B-466E-AB13-59959F61C115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C21CB5-5ED9-4DEB-9BAF-CD230C224B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C21CB5-5ED9-4DEB-9BAF-CD230C224B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C21CB5-5ED9-4DEB-9BAF-CD230C224B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C21CB5-5ED9-4DEB-9BAF-CD230C224B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A50376-F12B-418D-BE56-F4FC69FF54E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A50376-F12B-418D-BE56-F4FC69FF54E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A50376-F12B-418D-BE56-F4FC69FF54E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A50376-F12B-418D-BE56-F4FC69FF54E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66407863-8099-4358-9D24-8CB1F9C418C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66407863-8099-4358-9D24-8CB1F9C418C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66407863-8099-4358-9D24-8CB1F9C418C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66407863-8099-4358-9D24-8CB1F9C418C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
