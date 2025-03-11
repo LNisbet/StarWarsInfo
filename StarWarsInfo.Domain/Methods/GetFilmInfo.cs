@@ -1,6 +1,7 @@
 ﻿using StarWarsApiCSharp;
 using StarWarsInfo.Core.Entities;
 using StarWarsInfo.Core.Entities.Interfaces;
+using StarWarsInfo.Core.Exceptions;
 using StarWarsInfo.Domain.Methods.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,10 @@ namespace StarWarsInfo.Domain.Methods
             ObservableCollection<IFilmInfo> filmCollection = [];
 
             var films = filmRepo.GetEntities();
+
+            if (!films.Any())
+                throw new NoFilmsException();
+
             foreach (var film in films)
             {
                 filmCollection.Add(BuildFilmInfoFromFilm(film, personRepo, planetRepo));

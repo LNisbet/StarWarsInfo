@@ -7,6 +7,7 @@ using StarWarsInfo.Domain.Methods;
 using StarWarsInfo.Core.Entities.Interfaces;
 using StarWarsInfo.Core.Entities;
 using System.Collections.ObjectModel;
+using StarWarsInfo.Core.Exceptions;
 
 namespace StarWarsInfo.Tests
 {
@@ -136,7 +137,7 @@ namespace StarWarsInfo.Tests
             IGetFilmInfo _getFilmInfo = new GetFilmInfo();
 
             // Act and Assert
-            Assert.Throws<NullReferenceException>(() => _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object, _mockPersonRepo.Object, _mockPlanetRepo.Object));
+            Assert.Throws<NoFilmsException>(() => _getFilmInfo.GetAllFilmInfo(mockFilmRepo.Object, _mockPersonRepo.Object, _mockPlanetRepo.Object));
         }
         [Fact]
         public void NullFilm_ThrowsException()
