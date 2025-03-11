@@ -11,7 +11,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
-                <DataGridTextColumn Header="Releae Date" Binding="{Binding ReleaseDate, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate, StringFormat=dd/MM/yyyy}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

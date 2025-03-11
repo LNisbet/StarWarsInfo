@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StarWarsApiCSharp;
+﻿using StarWarsApiCSharp;
 using StarWarsInfo.Core.Entities.Interfaces;
 using StarWarsInfo.Domain.Methods.Interfaces;
 using StarWarsInfo.ViewModels.HelperClasses;
+using System.Collections.ObjectModel;
 
 namespace StarWarsInfo.ViewModels
 {
@@ -17,17 +12,17 @@ namespace StarWarsInfo.ViewModels
 
         private readonly SelectedFilmStore _selectedFilmStore;
 
-        public IFilmInfo SelectedFilm 
-        { 
+        public IFilmInfo SelectedFilm
+        {
             set
             {
                 _selectedFilmStore.SelectedFilm = value;
-            } 
+            }
         }
 
-        public FilmOverViewModel(IGetFilmInfo getFilmInfo, SelectedFilmStore selectedFilmStore, IRepository<Film> filmRepo, IRepository<Person> personRepo, IRepository<Planet> planetRepo) 
+        public FilmOverViewModel(IGetFilmInfo getFilmInfo, SelectedFilmStore selectedFilmStore, IRepository<Film> filmRepo, IRepository<Person> personRepo, IRepository<Planet> planetRepo)
         {
-            FilmList = getFilmInfo.GetAllFilmInfo(filmRepo,personRepo,planetRepo);
+            FilmList = getFilmInfo.GetAllFilmInfo(filmRepo, personRepo, planetRepo);
             _selectedFilmStore = selectedFilmStore;
         }
     }

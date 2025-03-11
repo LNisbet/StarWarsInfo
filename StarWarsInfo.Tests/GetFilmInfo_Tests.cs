@@ -1,23 +1,21 @@
 using Moq;
 using StarWarsApiCSharp;
-using System.Numerics;
-using static System.Net.WebRequestMethods;
-using StarWarsInfo.Domain.Methods.Interfaces;
-using StarWarsInfo.Domain.Methods;
-using StarWarsInfo.Core.Entities.Interfaces;
 using StarWarsInfo.Core.Entities;
-using System.Collections.ObjectModel;
+using StarWarsInfo.Core.Entities.Interfaces;
 using StarWarsInfo.Core.Exceptions;
+using StarWarsInfo.Domain.Methods;
+using StarWarsInfo.Domain.Methods.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace StarWarsInfo.Tests
 {
     public class GetFilmInfo_Tests
     {
         #region Valid Entities
-        static private readonly Film ValidFilm1 = new() 
+        static private readonly Film ValidFilm1 = new()
         {
-            EpisodeId = "1", 
-            Title = "Film1", 
+            EpisodeId = "1",
+            Title = "Film1",
             ReleaseDate = DateOnly.MinValue.ToString(),
             OpeningCrawl = "Text Text Text",
             Planets = [@"https://swapi.dev/api/planets/1/"],

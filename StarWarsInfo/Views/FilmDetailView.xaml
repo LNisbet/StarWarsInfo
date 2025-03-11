@@ -20,7 +20,7 @@
 
         <TextBlock Text="Details" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
 
-        <TextBlock Text="Featured Charachters" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+        <TextBlock Text="Featured Characters" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
         <DataGrid ItemsSource="{Binding FeaturedCharecters}" Grid.Column="0" Grid.Row="2" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
