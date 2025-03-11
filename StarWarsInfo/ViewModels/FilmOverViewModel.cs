@@ -18,7 +18,8 @@ namespace StarWarsInfo.ViewModels
         private readonly SelectedFilmStore _selectedFilmStore;
 
         public IFilmInfo SelectedFilm 
-        { set
+        { 
+            set
             {
                 _selectedFilmStore.SelectedFilm = value;
             } 
