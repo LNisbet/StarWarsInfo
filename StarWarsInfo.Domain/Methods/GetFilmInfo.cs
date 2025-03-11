@@ -1,5 +1,4 @@
 ﻿using StarWarsApiCSharp;
-using StarWarsInfo.Core.Entities;
 using StarWarsInfo.Core.Entities.Interfaces;
 using StarWarsInfo.Core.Exceptions;
 using StarWarsInfo.Domain.Methods.HelperMethods;
